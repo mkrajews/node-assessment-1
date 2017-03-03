@@ -6,20 +6,19 @@ module.exports = {
 readAll: function() {
   return users.find();
 },
-
 findUserById: function(userId) {
   return users.findOne('id', userId);
 },
-
 getAdmins: function() {
   return users.find('type', 'admin');
 },
-
 getNonAdmins: function() {
   return users.find('type', 'user');
 },
+
+// working on still.......:
 getUsersByFavorite: function(favorite) {
-  return users.find('favorites', favorite);
+  return users.find('favorites', favorite)
 },
 getUsersByAgeLimit: function(age) {
   return users.find('age', age);
