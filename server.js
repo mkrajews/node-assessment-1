@@ -82,11 +82,6 @@ app.put('/api/users/:id', function(req, res, next) {
       res.json(res);
     }
   });
-  // if (req.query.favorite) {
-  //   var favorite = req.query.favorite.toLowerCase();
-  //   var userFavArr = users.filter(function(fav) {
-  //     return user.fav.toLowerCase() === fav;
-  //   });
 }),
 app.delete('/api/users/:id', function(req, res, next) {
   userCtrl.removeUser(req.params.id, function() {
@@ -95,7 +90,7 @@ app.delete('/api/users/:id', function(req, res, next) {
     }else {
       res.json(res);
     }
-  })
+  });
 })
 
 
