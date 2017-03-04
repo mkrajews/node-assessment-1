@@ -94,15 +94,6 @@ app.delete('/api/users/:id', function(req, res, next) {
 })
 
 
-
-
-
-
-
-
-
-
-
 app.listen(3000, function() {
   console.log('successfully listening');
 });

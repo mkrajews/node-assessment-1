@@ -16,7 +16,7 @@ getNonAdmins: function() {
   return users.find('type', 'user');
 },
 
-// working on still.......:
+// weird one:
 getUsersByFavorite: function(favorite) {
   return users.find('favorites', favorite)
 },
