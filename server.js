@@ -39,19 +39,24 @@ app.get('/api/nonadmins', function(req, res, next) {
 }),
 app.get('/api/users/:favorites', function(req, res, next) {
   userCtrl.getUsersByFavorite(req.query.favorite, function(err, fav) {
-    if (req.query.favorite) {
-      var favorite = req.query.favorite.toLowerCase();
-      var userFavArr = users.filter(function(fav) {
-        return user.fav.toLowerCase() === fav;
-      });
+    if(err) {
+      res.json(err);
+    }else {
+      res.json(fav);
     }
-  })
+    // if (req.query.favorite) {
+    //   var favorite = req.query.favorite.toLowerCase();
+    //   var userFavArr = users.filter(function(fav) {
+    //     return user.fav.toLowerCase() === fav;
+    //   });
+    // }
+  });
 }),
 app.get('/api/users', function(req, res, next) {
 
   userCtrl.getUsersByAgeLimit(req.query.age, function(err, age) {
     if(err) {
-      res.status(200).json(err);
+      res.json(err);
     }else {
       res.json(age);
     }
