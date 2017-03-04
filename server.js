@@ -2,12 +2,12 @@
 var express =  require('express');
 var bodyParser = require('body-parser');
 var users = require('./users.js');
-// var users = require('./users.js');
 
 var app = express();
 var userCtrl = require('./userCtrl.js');
 
 app.use(bodyParser.json());
+
 
 app.get('/api/users', userCtrl.readAll);
 app.get('/api/users/:userId', function(req, res, next) {
@@ -53,7 +53,6 @@ app.get('/api/users/:favorites', function(req, res, next) {
   });
 }),
 app.get('/api/users', function(req, res, next) {
-
   userCtrl.getUsersByAgeLimit(req.query.age, function(err, age) {
     if(err) {
       res.json(err);
@@ -62,9 +61,6 @@ app.get('/api/users', function(req, res, next) {
     }
   });
 }),
-// app.get('/api/users', function(req, res, next) {
-//   userCtrl.findUserByQuery()
-// })
 app.post('/api/users/', function(req, res, next) {
   userCtrl.createUser(req.body, function(err, res) {
     if(err) {
